@@ -1,0 +1,69 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"files.exclude": {
+			"**/obj": true,
+			"**/.gitattributes": true,
+			"**/bin/**": true,
+			"**/.vs/**": true,
+			"**/.rider/**": true
+		},
+		"psi-header.config": {
+			"forceToTop": true,
+			"blankLinesAfter": 1,
+			"license": "Custom",
+			"creationDateZero": "asIs",
+		},
+		"psi-header.templates": [
+			{
+				"language": "csharp",
+				"template": [
+					"-----------------------------------------------------------------------------",
+					"Copyright © <<year>> <<organization>>. All rights reserved.",
+					"See copyright and license notice in the root project for more information.",
+					"-----------------------------------------------------------------------------"
+				],
+			}
+		],
+		"psi-header.lang-config": [
+			{
+				"language": "csharp",
+				"prefix": "// ",
+				"begin": "",
+				"end": ""
+			}
+		],
+		"psi-header.changes-tracking": {
+			"isActive": true,
+			"autoHeader": "manualSave",
+			"enforceHeader": true,
+			"include": [
+				"csharp"
+			],
+			"replace": [],
+			"updateLicenseVariables": true,
+		},
+		// <<licensetext>>
+		"psi-header.license-text": [],
+		"psi-header.license-reference": {
+			"uri": "../copyright.md",
+			"uriIsLocalFile": true
+		},
+		"psi-header.variables": [
+			[
+				"organization",
+				"Snowberry Software"
+			]
+		]
+	},
+	"extensions": {
+		"recommendations": [
+			"psioniq.psi-header",
+			"ms-dotnettools.csharp"
+		]
+	}
+}

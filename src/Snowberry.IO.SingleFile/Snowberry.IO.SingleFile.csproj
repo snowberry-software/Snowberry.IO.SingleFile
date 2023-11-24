@@ -1,0 +1,65 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+
+        <Authors>Snowberry Software</Authors>
+        <Description>A library for reading and modifying bundles from single-file published .NET applications.</Description>
+
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <VersionPrefix>$(AssemblyVersion)</VersionPrefix>
+
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageTags>single-file-publish, single-file, dotnet, csharp, cs, singlefilepublish</PackageTags>
+
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <IncludeBuildOutput>true</IncludeBuildOutput>
+        <Copyright>Copyright © 2023 Snowberry Software</Copyright>
+        <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+        <PackageProjectUrl>https://github.com/snowberry-software/Snowberry.IO.SingleFile</PackageProjectUrl>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+
+        <RepositoryType>git</RepositoryType>
+        <RepositoryUrl>https://github.com/snowberry-software/Snowberry.IO.SingleFile.git</RepositoryUrl>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Snowberry.IO" Version="1.0.0.11" />
+    </ItemGroup>
+
+    <PropertyGroup>
+        <!-- Publish the repository URL in the built .nupkg (in the NuSpec <Repository> element) -->
+        <PublishRepositoryUrl>true</PublishRepositoryUrl>
+
+        <!-- Embed source files that are not tracked by the source control manager in the PDB -->
+        <EmbedUntrackedSources>true</EmbedUntrackedSources>
+
+        <!-- Recommended: Embed symbols containing Source Link in the main file (exe/dll) -->
+        <DebugType>embedded</DebugType>
+    </PropertyGroup>
+
+    <!-- Deterministic Builds -->
+    <PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
+        <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(TF_BUILD)' == 'true'">
+        <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+    </PropertyGroup>
+
+    <!-- SourceLink -->
+    <ItemGroup>
+        <!-- For GitHub -->
+        <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="..\..\README.md">
+            <Pack>True</Pack>
+            <PackagePath>\</PackagePath>
+        </None>
+    </ItemGroup>
+</Project>
