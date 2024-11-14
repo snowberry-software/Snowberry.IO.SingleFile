@@ -288,7 +288,7 @@ public class SingleFileBinaryData : IDisposable
         return memoryStream;
     }
 
-    private string GenerateDeterministicId(SHA256 bundleHash)
+    private static string GenerateDeterministicId(SHA256 bundleHash)
     {
         bundleHash.TransformFinalBlock([], 0, 0);
         byte[] manifestHash = bundleHash.Hash!;
